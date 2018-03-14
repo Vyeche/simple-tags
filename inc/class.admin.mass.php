@@ -231,6 +231,7 @@ class SimpleTags_Admin_Mass {
 						<tr>
 							<th class="manage-column"><?php _e( 'Post title', 'simpletags' ); ?></th>
 							<th class="manage-column"><?php printf( __( 'Terms : %s', 'simpletags' ), esc_html( SimpleTags_Admin::$taxo_name ) ); ?></th>
+							<th>Tag Count</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -249,6 +250,7 @@ class SimpleTags_Admin_Mass {
 								           type="text" size="100" name="tags[<?php the_ID(); ?>]"
 								           value="<?php echo SimpleTags_Admin::getTermsToEdit( SimpleTags_Admin::$taxonomy, get_the_ID() ); ?>"/>
 								</td>
+								<td><?php echo substr_count( SimpleTags_Admin::getTermsToEdit( SimpleTags_Admin::$taxonomy, get_the_ID() ), ",") + 1 ?></td>
 							</tr>
 							<?php
 						}
